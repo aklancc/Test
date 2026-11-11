@@ -1,0 +1,15 @@
+#!name=YouTube Apple TV Lite
+#!desc=Apple TV轻量广告过滤：不改分流、不拦UDP、不修改YouTube API响应
+
+[Rule]
+
+[URL Rewrite]
+^https?://(?:www|s)\.youtube\.com/api/stats/ads _ reject-200
+^https?://(?:www|s)\.youtube\.com/(?:pagead|ptracking) _ reject-200
+^https?://s\.youtube\.com/api/stats/qoe\?adcontext _ reject-200
+^https?://[\w-]+\.googlevideo\.com/(?!(?:dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+
+[Script]
+
+[MITM]
+hostname = %APPEND% -redirector*.googlevideo.com,*.googlevideo.com,s.youtube.com,www.youtube.com
