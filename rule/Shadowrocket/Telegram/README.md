@@ -1,32 +1,36 @@
 # 🧸 Telegram
 
-## 前言
+## 规则说明
 
-Telegram 规则由《RULE GENERATOR 规则生成器》自动生成。
-
-分流规则是互联网公共服务的域名和 IP 地址汇总，所有数据均收集自互联网公开信息。
+本目录基于 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket/Telegram) 的 Telegram 规则整理，并补充了用户提供的域名及 IP 段。
 
 ## 规则统计
 
-最后更新时间：2025-09-10 02:08:26
+本仓库当前两个规则文件均为 **43 条**：
 
 | 类型 | 数量 |
 | ---- | ----: |
 | DOMAIN | 2 |
 | DOMAIN-KEYWORD | 1 |
-| DOMAIN-SUFFIX | 22 |
+| DOMAIN-SUFFIX | 23 |
 | IP-ASN | 5 |
-| IP-CIDR | 10 |
-| TOTAL | 40 |
+| IP-CIDR | 7 |
+| IP-CIDR6 | 5 |
+| **TOTAL** | **43** |
 
-## Shadowrocket 使用说明
+## 文件区别
 
-- `Telegram.list`：使用 `RULE-SET`。
-- `Telegram_Resolve.list`：使用 `RULE-SET`。
-- 两个文件的区别是 `Telegram.list` 的 IP-CIDR 规则带 `no-resolve`；`Telegram_Resolve.list` 不带。
-- 建议二选一单独使用，不要同时引用。
+- `Telegram.list`：IP 规则带 `no-resolve`。
+- `Telegram_Resolve.list`：IP 规则不带 `no-resolve`。
+- Shadowrocket 中通常二选一引用，不要同时引用。
 
-## 上游规则
+## OpenBox 导入提示
+
+OpenBox 当前显示 **38 条**，与本文件的 43 条相差 5 条；这 5 条正好是 `IP-ASN` 规则。说明 OpenBox 导入时很可能没有计入或不支持这类规则。域名和 IP-CIDR/IP-CIDR6 规则仍保留，不建议为了凑数量而删除或改写有效规则。
+
+如果 OpenBox 后续版本支持 `IP-ASN`，可再单独验证这 5 条是否能导入。
+
+## 上游来源
 
 - [Telegram.list](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list)
 - [Telegram_Resolve.list](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram_Resolve.list)
