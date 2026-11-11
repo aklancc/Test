@@ -6,9 +6,9 @@
 # DOMAIN-KEYWORD: 1
 # DOMAIN-SUFFIX: 23
 # IP-ASN: 5
-# IP-CIDR: 7
+# IP-CIDR: 9
 # IP-CIDR6: 4
-# TOTAL: 42
+# TOTAL: 44
 DOMAIN,api.imem.app
 DOMAIN,api.swiftgram.app
 DOMAIN-SUFFIX,cdn-telegram.org
@@ -49,6 +49,8 @@ IP-ASN,44907
 IP-ASN,59930
 IP-ASN,62014
 IP-ASN,62041
+IP-CIDR,91.105.192.0/23
+IP-CIDR,185.76.151.0/24
 # Additional Telegram rules
 DOMAIN-SUFFIX,tdmes.com
 IP-CIDR,95.161.64.0/20
