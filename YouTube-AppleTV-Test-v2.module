@@ -1,0 +1,13 @@
+#!name=YouTube Apple TV Test v2
+#!desc=Apple TV 定向兼容测试：仅解密 YouTube API 域名，保留原版响应体过滤脚本，避免解密视频与统计域名
+
+[Rule]
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
+
+[Script]
+youtube_response=type=http-response,pattern=^https://youtubei\.googleapis\.com/youtubei/v1/(?:browse|next|player|search|reel/reel_watch_sequence|guide|account/get_setting|get_watch)(?:[/?#]|$),requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/akiralereal/shadowrocket-toolkit/84477215bc16c39478203688fac8e2a943364c57/scripts/youtube-response.js,argument="{}"
+
+
+[MITM]
+hostname = %APPEND% youtubei.googleapis.com
