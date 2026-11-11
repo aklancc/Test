@@ -10,4 +10,4 @@ youtube_response=type=http-response,pattern=^https://youtubei\.googleapis\.com/y
 
 
 [MITM]
-hostname = %APPEND% youtubei.googleapis.com
+hostname = %APPEND% youtubei.googleapis.com, -*.googlevideo.com, -www.youtube.com, -s.youtube.com
