@@ -1,17 +1,10 @@
 #!name=YouTube Apple TV Lite
-#!desc=Apple TV 稳定精简版：屏蔽部分广告追踪域名并阻止 YouTube QUIC/UDP；不启用 HTTPS 解密、MITM 或响应体脚本
+#!desc=Apple TV 稳定精简版：屏蔽部分广告追踪域名并阻止 YouTube QUIC/UDP；不包含 HTTPS 解密、MITM、URL Rewrite 或响应体脚本
 
 [Rule]
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,googleadservices.com,REJECT
 DOMAIN-SUFFIX,googlesyndication.com,REJECT
-DOMAIN, pagead2.googlesyndication.com,REJECT
 DOMAIN-SUFFIX,adtrafficquality.google,REJECT
-DOMAIN, youtubei.googleapis.com,PROXY
 AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
 AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
-
-[URL Rewrite]
-^https?://(?:www|s)\.youtube\.com/api/stats/ads _ reject-200
-^https?://(?:www|s)\.youtube\.com/(?:pagead|ptracking) _ reject-200
-^https?://s\.youtube\.com/api/stats/qoe\?adcontext _ reject-200
